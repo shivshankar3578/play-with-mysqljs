@@ -1,2 +1,2 @@
-# play-with-sequelize
-codebase to play with sequelize
+# play-with-mysqljs
+codebase to play with mysqljs
