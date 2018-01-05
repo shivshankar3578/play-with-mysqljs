@@ -1,0 +1,950 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "This is a dev Picnic App server.",
+		"version": "1.0.0",
+		"title": "Picnic APP",
+		"termsOfService": " ",
+		"contact": {
+			"mobile": "testkiplinfo@gmail.com"
+		}
+	},
+	"host": "192.168.0.131:7481",
+	"basePath": "",
+	"tags": [
+		{
+			"name": "user",
+			"description": "Everything about user",
+			"externalDocs": {
+				"description": "Find out more",
+				"url": ""
+			}
+		},
+		{
+			"name": "invitation",
+			"description": "Everything about invitation",
+			"externalDocs": {
+				"description": "Find out more",
+				"url": ""
+			}
+		},
+		{
+			"name": "mission",
+			"description": "Everything about mission",
+			"externalDocs": {
+				"description": "Find out more",
+				"url": ""
+			}
+		}
+	],
+	"schemes": [
+		"http"
+	],
+	"paths": {
+		"/friend_req/accept/{friend_req_id}": {
+			"get": {
+				"tags": [
+					"friend_req"
+				],
+				"summary": "accept friend_req",
+				"description": "accept friend_req",
+				"operationId": "acceptfriend_req",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					
+					{
+						"name": "version",
+						"description": "app version",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "ssid",
+						"description": "sid of user eg f4844308c76172cd70727c9c50bd7bf0",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "friend_req_id",
+						"description": "friend_req_id ",
+						"required": false,
+						"type": "string",
+						"in": "path"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/friend_req/decline/{friend_req_id}": {
+			"get": {
+				"tags": [
+					"friend_req"
+				],
+				"summary": "decline friend_req",
+				"description": "decline friend_req",
+				"operationId": "declinefriend_req",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "sid of user eg f2736511a7d580053f7fc5ec75c7c688",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "friend_req_id",
+						"description": "friend_req_id",
+						"required": true,
+						"type": "string",
+						"in": "path"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/friend_requests": {
+			"get": {
+				"tags": [
+					"friend_req"
+				],
+				"summary": "all friend_req",
+				"description": "all friend_req",
+				"operationId": "friend_requests",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "sid of user eg f2736511a7d580053f7fc5ec75c7c688",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "access_token",
+						"description": "access_token ",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/my_friends": {
+			"get": {
+				"tags": [
+					"friend_req"
+				],
+				"summary": "my_friends",
+				"description": "my_friends ",
+				"operationId": "my_friends",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "sid of user eg f2736511a7d580053f7fc5ec75c7c688",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "access_token",
+						"description": "access_token ",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/friend_req/send": {
+			"post": {
+				"tags": [
+					"friend_req"
+				],
+				"summary": "send friend_req ",
+				"description": "send friend_req ",
+				"operationId": "sendfriend_req",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "sid of user eg f2736511a7d580053f7fc5ec75c7c688",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "body",
+						"description": "Request body  {\"to_user\":2}  ",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/searchByFB": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "search friends by fb",
+				"description": "search friends by fb",
+				"operationId": "searchByFB",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "sid of user eg f2736511a7d580053f7fc5ec75c7c688",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "body",
+						"description": "Request body  {\"search\":[{\"id\":\"1233920906729904\"}, {\"id\":\"480232419018996\"}]}",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/searchByMobile": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "search friends by mobile",
+				"description": "search friends by mobile",
+				"operationId": "searchByMobile",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "sid of user eg f2736511a7d580053f7fc5ec75c7c688",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "body",
+						"description": "Request body  {\"search\":[{\"phone\":\"9785218725\"}, {\"phone\":\"0987456321\"}]}",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/sendOtp": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "sendOtp",
+				"description": "sendOtp",
+				"operationId": "sendOtp",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "sid of user eg f2736511a7d580053f7fc5ec75c7c688",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "body",
+						"description": "Request body  {\"country_code\":\"+40\", \"mobile\":\"9785218725\"}",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/editProfile": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "editProfile",
+				"description": "editProfile",
+				"operationId": "editProfile",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "sid of user eg f2736511a7d580053f7fc5ec75c7c688",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "body",
+						"description": "Request body  {\"picture\":\"http://www.example.com/abc.jpg\", \"status\":\"hello world\"}",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/verifyMobile": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "verifyMobile",
+				"description": "verifyMobile",
+				"operationId": "verifyMobile",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "sid of user eg f2736511a7d580053f7fc5ec75c7c688",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "body",
+						"description": "Request body  {\"otp\":\"123546\" }",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/socialLogin": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "social Register users",
+				"description": "social Register users",
+				"operationId": "socialRegister",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "body",
+						"description": "Request body {\"lat\": \"23.12045\", \"lng\": \"75.1572,\",\"facebook_id\":\"1233920906729904\",\"device_token\": \"cvbjss5v8UO154\"} ",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/app_feedback": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "app_feedback",
+				"description": "app_feedback",
+				"operationId": "app_feedback",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "sid of user eg f2736511a7d580053f7fc5ec75c7c688",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "body",
+						"description": "Request body {\"message\": \"App need some some performance improvement \"} ",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/viewMission/{mission_id}": {
+			"get": {
+				"tags": [
+					"mission"
+				],
+				"summary": "mark game viewed",
+				"description": "mark game viewed",
+				"operationId": "viewMission",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					
+					{
+						"name": "version",
+						"description": "app version",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "ssid",
+						"description": "sid of user eg f4844308c76172cd70727c9c50bd7bf0",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "mission_id",
+						"description": "mission_id ",
+						"required": false,
+						"type": "string",
+						"in": "path"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+
+		"/checkMissionStatus/{mission_id}": {
+			"get": {
+				"tags": [
+					"mission"
+				],
+				"summary": "check Mission Status",
+				"description": "check Mission Status",
+				"operationId": "checkMissionStatus",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					
+					{
+						"name": "version",
+						"description": "app version",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "ssid",
+						"description": "sid of user eg f4844308c76172cd70727c9c50bd7bf0",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "mission_id",
+						"description": "mission_id ",
+						"required": false,
+						"type": "string",
+						"in": "path"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/viewProfile/{user_id}": {
+			"get": {
+				"tags": [
+					"user"
+				],
+				"summary": "view user",
+				"description": "view user",
+				"operationId": "viewProfile",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "ssid",
+						"required": true,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "user_id",
+						"description": "user_id",
+						"required": true,
+						"type": "string",
+						"in": "path"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/invitation/accept/{invitation_id}": {
+			"get": {
+				"tags": [
+					"invitation"
+				],
+				"summary": "accept invitation",
+				"description": "accept invitation",
+				"operationId": "acceptInvitation",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					
+					{
+						"name": "version",
+						"description": "app version",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "ssid",
+						"description": "sid of user eg f4844308c76172cd70727c9c50bd7bf0",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "invitation_id",
+						"description": "invitation_id ",
+						"required": false,
+						"type": "string",
+						"in": "path"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/invitation/decline/{invitation_id}": {
+			"get": {
+				"tags": [
+					"invitation"
+				],
+				"summary": "decline invitation",
+				"description": "decline invitation",
+				"operationId": "declineInvitation",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "sid of user eg f2736511a7d580053f7fc5ec75c7c688",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "invitation_id",
+						"description": "invitation_id",
+						"required": true,
+						"type": "string",
+						"in": "path"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/invitation/send": {
+			"post": {
+				"tags": [
+					"invitation"
+				],
+				"summary": "send invitation ",
+				"description": "send invitation ",
+				"operationId": "sendInvitation",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "sid of user eg f2736511a7d580053f7fc5ec75c7c688",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					
+					{
+						"name": "body",
+						"description": "Request body  {\"to_user\":2}  ",
+						"required": true,
+						"type": "string",
+						"in": "body"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		},
+
+		"/logoutUser": {
+			"get": {
+				"tags": [
+					"user"
+				],
+				"summary": "logout User",
+				"description": "logout User",
+				"operationId": "logoutUser",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssid",
+						"description": "sid of user eg f4844308c76172cd70727c9c50bd7bf0",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					},
+					{
+						"name": "access_token",
+						"description": "access_token ",
+						"required": false,
+						"type": "string",
+						"in": "header"
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Success message"
+					},
+					"201": {
+						"description": "Bad Request"
+					},
+					"203": {
+						"description": "Error message"
+					}
+				},
+				"security": []
+			}
+		}
+	},
+	"securityDefinitions": {
+		"api_key": {
+			"type": "apiKey",
+			"name": "api_key",
+			"in": "header"
+		}
+	},
+	"definitions": {}
+}
